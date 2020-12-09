@@ -1,0 +1,8 @@
+mesa
+mesa --upgrade
+tornado
+tornado==4.5.2
+random
+random --
+numpy
+numpy --upgrade
