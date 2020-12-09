@@ -4,8 +4,8 @@ from mesa import Model
 from mesa.space import MultiGrid
 from mesa.datacollection import DataCollector
 
-from SIR_agent.agents import Susceptible,Susceptible_with_mask, Infected, Recovered
-from SIR_agent.schedule import RandomActivationByHealth
+from SIR_agent_2020.agents import Susceptible, Susceptible_with_mask, Infected, Recovered
+from SIR_agent_2020.schedule import RandomActivationByHealth
 
 
 class SIR(Model):

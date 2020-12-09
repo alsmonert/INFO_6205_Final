@@ -2,7 +2,7 @@ import random
 
 from mesa import Agent
 
-from SIR_agent.random_walk import RandomWalker  #RandomWalker from wolf_sheep example
+from SIR_agent_2020.random_walk import RandomWalker  #RandomWalker from wolf_sheep example
 
 
 class Susceptible_with_mask(RandomWalker):

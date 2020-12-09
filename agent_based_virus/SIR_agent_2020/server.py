@@ -2,8 +2,8 @@ from mesa.visualization.ModularVisualization import ModularServer
 from mesa.visualization.modules import CanvasGrid, ChartModule
 from mesa.visualization.UserParam import UserSettableParameter
 
-from SIR_agent.agents import Susceptible,Susceptible_with_mask, Infected, Recovered
-from SIR_agent.model import SIR
+from SIR_agent_2020.agents import Susceptible,Susceptible_with_mask, Infected, Recovered
+from SIR_agent_2020.model import SIR
 
 """
 Citation:
@@ -19,22 +19,22 @@ def agent_portrayal(agent):
     portrayal = {}
 
     if type(agent) is Susceptible:
-        portrayal["Shape"] = "SIR_agent/resources/susceptible.png"
+        portrayal["Shape"] = "SIR_agent_2020/resources/susceptible.png"
         portrayal["scale"] = 0.9
         portrayal["Layer"] = 1
 
     elif type(agent) is Susceptible_with_mask:
-        portrayal["Shape"] = "SIR_agent/resources/Susceptible_with_mask.png"
+        portrayal["Shape"] = "SIR_agent_2020/resources/Susceptible_with_mask.png"
         portrayal["scale"] = 0.9
         portrayal["Layer"] = 2
 
     elif type(agent) is Infected:
-        portrayal["Shape"] = "SIR_agent/resources/infected.png"
+        portrayal["Shape"] = "SIR_agent_2020/resources/infected.png"
         portrayal["scale"] = 0.9
         portrayal["Layer"] = 3
 
     elif type(agent) is Recovered:
-        portrayal["Shape"] = "SIR_agent/resources/recovered.png"
+        portrayal["Shape"] = "SIR_agent_2020/resources/recovered.png"
         portrayal["scale"] = 0.9
         portrayal["Layer"] = 4
 
@@ -50,9 +50,9 @@ chart_element = ChartModule([{"Label": "Susceptible", "Color": "#FF0000"},
                              {"Label": "Recovered", "Color":"#0000FF"}])
 
 model_params = {"verbose": UserSettableParameter('checkbox', "Verbose?", False),
-                "initial_susceptible": UserSettableParameter('slider', 'Initial Susceptible Population', 100, 10, 300),
-                "initial_susceptible_with_mask": UserSettableParameter('slider', 'Initial maksed Susceptible Population', 100, 10, 300),
-                "initial_infected": UserSettableParameter('slider', 'Initial Infected Population', 5, 0, 300),
+                "initial_susceptible": UserSettableParameter('slider', 'Initial Susceptible Population', 0, 10, 300),
+                "initial_susceptible_with_mask": UserSettableParameter('slider', 'Initial maksed Susceptible Population', 0, 10, 300),
+                "initial_infected": UserSettableParameter('slider', 'Initial Infected Population', 0, 0, 300),
                 "initial_recovered": UserSettableParameter('slider', 'Initial Recovered Population', 0, 0, 300),
                 "gamma": UserSettableParameter('slider', "Recovery Rate", 0, 1, 100),
                 "epsilon": UserSettableParameter('slider', "Population Decrease Rate", 0, 1, 100),
