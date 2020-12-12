@@ -5,11 +5,11 @@ Adapted from the mesa agent-based modeling package in python. Using the structur
 
 ## Summary
 
-The model focuses on basic population interactions where we look at the spread of a disease throughout a fluid group of individuals. In the model, new people can enter the simulation. Every new agent enters a susceptible. The model we are basing this off of is new students coming to a school where they are exposed to new germs and viruses. New agents are added to the neighborhood of a current agent in the model. This is meant to simulate new people trying to make friends or introducing themselves to others before dispersing throughout the available space. There are also infected agents in the model. Infected agents are individuals that are currently being affected by the disease. If an infected person and a susceptible person come within contact (looking at the Moore neighborhood including the center), then a random number is generated and compared against the infection rate to determine how the disease spreads. At each new iteration, there is also a random chance that an infected individual can become recovered. Thus, the three agents we are working with are susceptible, infected, and recovered.
+The model focuses on basic population interactions where we look at the spread of a disease throughout a fluid group of individuals. In the model, new people can enter the simulation. Every new agent enters susceptible. New agents are added to the neighborhood of a current agent in the model. There are also infected agents in the model. Infected agents are individuals that are currently being affected by the disease. If an infected person and a susceptible person come within contact, then a random number is generated and compared against the infection rate to determine how the disease spreads. At each new iteration, there is also a random chance that an infected individual can become recovered. Thus, the three agents we are working with are susceptible, infected, and recovered. In the end, we have decided to add a new agent that is Susceptible_with_mask. It has a lower rate of being infected than normal susceptible people.
 
-The population dynamics included in this model are people coming and going at adjustable rates. New people are added only to the susceptible class, but an individual in any class has a chance of leaving the model regardless of health status. This make sense because most people entering something like a new school or new work environment are susceptible to the germs present, but there isn't a health requirement to leaving said environment. Thus, everyone who enters must be susceptible, but anyone can leave the model.
+The population dynamics included in this model are people coming and going at adjustable rates. New people are added only to the susceptible class, but an individual in any class has a chance of leaving the model regardless of health status. There is a 10 x 10 space in the center of the map, which represents the city area. It has a higher infection rate and a higher recovery rate due to the better hospital severice.
 
-We did not incorporate viral mutations into this model specifically. Instead, we established a rule that if a recovered individual interacts with at least three infected individuals, they can become sick again. This is meant to model mutations in the sense that people can get repeat infections or a new strain can arise based on the need to transmit but inability to do so based on previous infections.
+We did not incorporate viral mutations into this model specifically. Instead, we established a rule that if a recovered individual interacts with at least three infected individuals, they can become sick again. This is meant to model mutations because people can get repeat infections, or a new strain can arise based on the need to transmit but the inability to do so based on previous infections.
 
 The model will end when there are no more sick people because there is no longer an infection to spread and thus no reason to continue observing the agents.
 
@@ -43,13 +43,11 @@ Then open your browser to [http://127.0.0.1:8521/](http://127.0.0.1:8521/) and p
 * `random_walk.py` : Class defined by the mesa developers. Defines an agent that walks randomly around the model's grid and interacts with other agents. Has only a few base properties for moving and defining the neighborhood.
 
 * `model.py` : File that defines the Grid where the agents will move and interact as well as the parameters used by the agents for their rules of interactions. Parameters are:
-  * $\alpha$: Rate at which population increases.
-  * $\beta$: Rate at which the infection spreads.
-  * $\gamma$: Rate at which infected people recover.
-  * $\epsilon$: Rate at which population decreases.
-  * S0: Initial population of susceptible people.
-  * I0: Initial population of infected people.
-  * R0: Initial population of recovered people.
+  * alpha: Rate at which population increases.
+  * beta: Rate at which the infection spreads.
+  * gamma: Rate at which infected people recover.
+  * epsilon: Rate at which population decreases.
+  * delta: Rate at which the infected people dead.
   * verbose: Prints the counts of each class out at the command line for each time step.
 
 The descriptions of these parameters is seen in the interactive visualization, but defined by the above names in the model.
