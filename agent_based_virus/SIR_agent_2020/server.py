@@ -50,13 +50,14 @@ chart_element = ChartModule([{"Label": "Susceptible", "Color": "#FF0000"},
                              {"Label": "Recovered", "Color":"#0000FF"}])
 
 model_params = {"verbose": UserSettableParameter('checkbox', "Verbose?", False),
-                "initial_susceptible": UserSettableParameter('slider', 'Initial Susceptible Population', 0, 10, 300),
-                "initial_susceptible_with_mask": UserSettableParameter('slider', 'Initial maksed Susceptible Population', 0, 10, 300),
-                "initial_infected": UserSettableParameter('slider', 'Initial Infected Population', 0, 0, 300),
+                "initial_susceptible": UserSettableParameter('slider', 'Initial Susceptible Population', 150, 0, 300),
+                "initial_susceptible_with_mask": UserSettableParameter('slider', 'Initial maksed Susceptible Population', 150, 0, 300),
+                "initial_infected": UserSettableParameter('slider', 'Initial Infected Population', 150, 0, 300),
                 "initial_recovered": UserSettableParameter('slider', 'Initial Recovered Population', 0, 0, 300),
                 "gamma": UserSettableParameter('slider', "Recovery Rate", 0, 1, 100),
-                "epsilon": UserSettableParameter('slider', "Population Decrease Rate", 0, 1, 100),
-                "alpha": UserSettableParameter('slider', "Population Increase Rate", 0, 1, 100),
-                "beta": UserSettableParameter('slider', "Infection Rate", 0, 1, 100)}
+                "epsilon": UserSettableParameter('slider', "Population Decrease Rate", 15, 0, 50),
+                "alpha": UserSettableParameter('slider', "Population Increase Rate", 20, 0, 50),
+                "beta": UserSettableParameter('slider', "Infection Rate", 0, 1, 100),
+                "delta": UserSettableParameter('slider', "mortalty Rate", 5, 1, 15)}
 
 server = ModularServer(SIR, [canvas_element, chart_element], "Susceptible, Susceptible_with_mask, Infected, Recovered", model_params)

@@ -28,6 +28,7 @@ class SIR(Model):
                  beta,
                  epsilon,
                  alpha,
+                 delta,
                  height=height, width=width, verbose = False):
         '''
         Create a new SIR model.
@@ -39,6 +40,7 @@ class SIR(Model):
             gamma:float, infection rate
             beta: float, recovery rate
             epsilon:float, removal rate
+            delta: float, death rate
             alpha:float, entry rate to board
             height:int, width of board
             width:int, width of board
@@ -61,6 +63,7 @@ class SIR(Model):
         self.gamma = gamma/100
         self.epsilon = epsilon/100
         self.alpha = alpha/100
+        self.delta = delta/100
         self.verbose = verbose
 
         #sets up grid and data collector to store values

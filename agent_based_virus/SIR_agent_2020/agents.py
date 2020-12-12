@@ -62,9 +62,9 @@ class Susceptible_with_mask(RandomWalker):
             self.model.schedule.remove(self)    #Removes susceptible from schedule
 
         if random.random() < self.model.alpha:  #Population increase rate, if random.random() less than growth rate, spawn new susceptible agent in model
-            new_susceptible = Susceptible(random.choice(self.model.grid.get_neighborhood((x,y), moore=True, include_center = True)), self.model, True)
-            self.model.grid.place_agent(new_susceptible, new_susceptible.pos)   #places susceptible agent on model
-            self.model.schedule.add(new_susceptible)    #adds susceptible agent to schedule
+            new_masked_susceptible = Susceptible_with_mask(random.choice(self.model.grid.get_neighborhood((x,y), moore=True, include_center = True)), self.model, True)
+            self.model.grid.place_agent(new_masked_susceptible, new_masked_susceptible.pos)   #places susceptible agent on model
+            self.model.schedule.add(new_masked_susceptible)    #adds susceptible agent to schedule
 
 
 class Susceptible(RandomWalker):
@@ -166,9 +166,10 @@ class Infected(RandomWalker):
                 self.model.schedule.remove(self)    #Remove infected agent from schedule
                 left = True
 
-        if (random.random() < self.model.epsilon) and not left: #If random.random() less than population decay rate (epsilon), agent will leave model
+        if (random.random() < (self.model.delta + self.model.epsilon)) and not left: #If random.random() less than the sum of population decay rate (epsilon) and mortalty Rate (delta), agent will leave model
             self.model.grid._remove_agent(self.pos, self)   #Removes agent from model
             self.model.schedule.remove(self)    #Removes agent from schedule
+
 
 class Recovered(RandomWalker):
     '''
