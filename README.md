@@ -3,8 +3,8 @@
 Adapted from the mesa agent-based modeling package in python. Using the structural framework of the wolf_sheep model found [here](https://github.com/projectmesa/mesa-examples/tree/master/examples/WolfSheep). We accredit mesa for their hard work and development efforts. Without which, this projects would not have come to fruition.
 
 ### Team 10:
-        Xing Dong - 02  001718652
-        SongYang Yue - 02
+        Xing Dong - 02    001718652
+        SongYang Yue - 02 001711292
 ## Summary
 
 The model focuses on basic population interactions where we look at the spread of a disease throughout a fluid group of individuals. In the model, new people can enter the simulation. Every new agent enters susceptible. New agents are added to the neighborhood of a current agent in the model. There are also infected agents in the model. Infected agents are individuals that are currently being affected by the disease. If an infected person and a susceptible person come within contact, then a random number is generated and compared against the infection rate to determine how the disease spreads. At each new iteration, there is also a random chance that an infected individual can become recovered. Thus, the three agents we are working with are susceptible, infected, and recovered. In the end, we have decided to add a new agent that is Susceptible_with_mask. It has a lower rate of being infected than normal susceptible people.
